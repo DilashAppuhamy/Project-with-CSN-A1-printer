@@ -1,9 +1,3 @@
-/*
- * This code is to use in Arduino UNO for interfacing the Thermal Printer.
- */
-
-
-//Pin declaration
 #include <SPI.h>
 #include <SD.h>
 
@@ -12,7 +6,6 @@ int led = 13;
 int SW = 2;
 
 // Programe flow related operations
-
 int is_switch_press = 0; // For detecting the switch press status
 int debounce_delay = 500; //Debounce delay
 
@@ -37,8 +30,6 @@ void loop() {
 
   is_switch_press = digitalRead(SW); // Reading the Switch press status
 
-  //Serial.println(is_switch_press);
-  //delay(500);
   if (is_switch_press == HIGH){
     delay(debounce_delay); // debounce delay for button press
     if(is_switch_press == HIGH){
@@ -52,7 +43,6 @@ void loop() {
     
         while (myFile.available()) {
             
-            //Serial.print(myFile.read());
             option = myFile.read();
             Serial.write(option);
         }
@@ -62,10 +52,7 @@ void loop() {
     
       Serial.println("error opening file");
       }   
-//      Serial.println("WELCOME");
-//      delay(100);
-//      Serial.println("This is your reciept");
-//      Serial.println("with Arduino MEGA.");
+     
       delay(100);
       Serial.println ("\n\r");
       Serial.println("DIVOR AUTOMATIONS");    
